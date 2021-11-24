@@ -11,7 +11,6 @@ export const getAllRequest = async(req,res)=>{
         });
     });
 }
-
 export const acceptRequest = async (req,res) => {
     const id = req.params.id;
     const nama_varian = req.params.nama_varian
