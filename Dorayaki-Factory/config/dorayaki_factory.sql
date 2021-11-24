@@ -60,7 +60,7 @@ CREATE TABLE `bahan_baku` (
 
 LOCK TABLES `bahan_baku` WRITE;
 /*!40000 ALTER TABLE `bahan_baku` DISABLE KEYS */;
-INSERT INTO `bahan_baku` VALUES ('Gula',10),('Pasir',100),('Terigu',250);
+INSERT INTO `bahan_baku` VALUES ('Gula',97),('Pasir',95),('Terigu',98);
 /*!40000 ALTER TABLE `bahan_baku` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -131,8 +131,10 @@ CREATE TABLE `request_toko` (
   `varian` varchar(255) NOT NULL,
   `jumlah_penambahan` int NOT NULL,
   `status` tinyint(1) DEFAULT NULL,
-  PRIMARY KEY (`id_request`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  PRIMARY KEY (`id_request`),
+  KEY `FK_request_toko_resep` (`varian`),
+  CONSTRAINT `FK_request_toko_resep` FOREIGN KEY (`varian`) REFERENCES `resep` (`nama_resep`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -141,6 +143,7 @@ CREATE TABLE `request_toko` (
 
 LOCK TABLES `request_toko` WRITE;
 /*!40000 ALTER TABLE `request_toko` DISABLE KEYS */;
+INSERT INTO `request_toko` VALUES (1,'Rasa Pasir',1,1);
 /*!40000 ALTER TABLE `request_toko` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -156,7 +159,7 @@ CREATE TABLE `resep` (
   `nama_resep` varchar(255) NOT NULL,
   PRIMARY KEY (`id_resep`),
   UNIQUE KEY `nama_resep` (`nama_resep`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -165,7 +168,7 @@ CREATE TABLE `resep` (
 
 LOCK TABLES `resep` WRITE;
 /*!40000 ALTER TABLE `resep` DISABLE KEYS */;
-INSERT INTO `resep` VALUES (5,'Rasa Pasir'),(1,'Terigu');
+INSERT INTO `resep` VALUES (6,'Rasa Melon'),(5,'Rasa Pasir'),(1,'Terigu');
 /*!40000 ALTER TABLE `resep` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -178,4 +181,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-11-24  1:45:49
+-- Dump completed on 2021-11-24 15:05:52

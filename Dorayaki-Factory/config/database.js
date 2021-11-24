@@ -1,9 +1,10 @@
 import mysql from 'mysql2';
 
-const db = mysql.createConnection({
+const pool = mysql.createPool({
     host: 'localhost',
     user: 'root',
-    password : 'admin'
+    password : 'admin',
+    database : 'dorayaki_factory'
 });
 
-export default db;
+export default pool;

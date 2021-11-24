@@ -1,0 +1,13 @@
+GET http://localhost:5000/request
+
+###
+PATCH http://localhost:5000/request/acc/1/Rasa%20Pasir
+
+###
+PATCH http://localhost:5000/request/dec/1
+
+###
+GET http://localhost:5000/recipes
+
+###
+GET http://localhost:5000/recipes/5
