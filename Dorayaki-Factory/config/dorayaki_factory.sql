@@ -60,7 +60,7 @@ CREATE TABLE `bahan_baku` (
 
 LOCK TABLES `bahan_baku` WRITE;
 /*!40000 ALTER TABLE `bahan_baku` DISABLE KEYS */;
-INSERT INTO `bahan_baku` VALUES ('Gula',97),('Pasir',95),('Terigu',98);
+INSERT INTO `bahan_baku` VALUES ('Apel',120),('Coklat',180),('Gula',82),('Pasir',70),('Strawberry',120),('Terigu',88);
 /*!40000 ALTER TABLE `bahan_baku` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -89,7 +89,7 @@ CREATE TABLE `bahan_resep` (
 
 LOCK TABLES `bahan_resep` WRITE;
 /*!40000 ALTER TABLE `bahan_resep` DISABLE KEYS */;
-INSERT INTO `bahan_resep` VALUES (5,'Gula',3),(5,'Pasir',5),(5,'Terigu',2);
+INSERT INTO `bahan_resep` VALUES (1,'Gula',7),(1,'Pasir',7),(5,'Gula',3),(5,'Pasir',5),(5,'Terigu',2);
 /*!40000 ALTER TABLE `bahan_resep` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -143,7 +143,7 @@ CREATE TABLE `request_toko` (
 
 LOCK TABLES `request_toko` WRITE;
 /*!40000 ALTER TABLE `request_toko` DISABLE KEYS */;
-INSERT INTO `request_toko` VALUES (1,'Rasa Pasir',1,1);
+INSERT INTO `request_toko` VALUES (1,'Rasa Pasir',1,0);
 /*!40000 ALTER TABLE `request_toko` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -159,7 +159,7 @@ CREATE TABLE `resep` (
   `nama_resep` varchar(255) NOT NULL,
   PRIMARY KEY (`id_resep`),
   UNIQUE KEY `nama_resep` (`nama_resep`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -168,7 +168,7 @@ CREATE TABLE `resep` (
 
 LOCK TABLES `resep` WRITE;
 /*!40000 ALTER TABLE `resep` DISABLE KEYS */;
-INSERT INTO `resep` VALUES (6,'Rasa Melon'),(5,'Rasa Pasir'),(1,'Terigu');
+INSERT INTO `resep` VALUES (9,'Rasa Coklat'),(6,'Rasa Melon'),(5,'Rasa Pasir'),(1,'Terigu');
 /*!40000 ALTER TABLE `resep` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -181,4 +181,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-11-24 15:05:52
+-- Dump completed on 2021-11-24 18:22:46

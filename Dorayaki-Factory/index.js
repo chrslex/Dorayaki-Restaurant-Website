@@ -2,6 +2,7 @@ import express from "express";
 import requestRoutes from "./routes/requestRoutes.js";
 import recipeRoutes from './routes/recipesRoutes.js';
 import stocksRoutes from './routes/stocksRoutes.js';
+import cors from "cors";
 
 const app = express();
 app.use(express.json());
@@ -9,6 +10,7 @@ app.use(express.json());
 app.use('/request', requestRoutes);
 app.use('/recipes', recipeRoutes);
 app.use('/stok', stocksRoutes);
+app.use(cors());
 
 app.get('/', (req,res)=>{
     res.send('Welcome');

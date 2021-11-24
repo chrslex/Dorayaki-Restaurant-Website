@@ -21,24 +21,24 @@ Content-Type: application/json
 }
 ###
 
-POST http://localhost:5000/recipes/create/1
+POST http://localhost:5000/recipes/ingredients/1
 Content-Type: application/json
 
 {
-    "bahan_baku" : "Gula",
+    "bahan_baku" : "Pasir",
     "jumlah" : 7
 }
 
 ###
 
-GET http://localhost:5000/ingredients
+GET http://localhost:5000/stok
 
 ###
-POST http://localhost:5000/stocks/add
+POST http://localhost:5000/stok/add
 Content-Type: application/json
 
 {
-    "bahan_baku" : "Strawberry",
+    "bahan_baku" : "Apel",
     "stok" : 120
 }
 
@@ -49,5 +49,5 @@ Content-Type: application/json
 
 {
     "bahan_baku" : "Coklat",
-    "stok" : 140
+    "stok" : 180
 }
