@@ -1,12 +1,16 @@
 import express from "express";
 import {
     getAllRecipes,
-    getRecipesById
+    getRecipesById, 
+    createRecipes,
+    createIngredientForRecipes
 } from '../controllers/recipes.js'
 
 const router = express.Router();
 
 router.get('/', getAllRecipes);
 router.get('/:id', getRecipesById);
+router.post('/create', createRecipes);
+router.post('/create/:id', createIngredientForRecipes);
 
 export default router;

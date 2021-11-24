@@ -34,7 +34,6 @@ export const acceptRequest = async (req,res) => {
         conn.query(sql, [nama_varian], (err,rows)=>{
             conn.release(); 
             if(err) throw err;
-            const result = Object.values(JSON.parse(JSON.stringify(rows)));
             rows.forEach((r)=>{
                 let bahan_baku = r.bahan_baku;
                 let jumlah = r.jumlah;

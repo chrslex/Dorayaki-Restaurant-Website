@@ -11,3 +11,21 @@ GET http://localhost:5000/recipes
 
 ###
 GET http://localhost:5000/recipes/5
+
+###
+POST http://localhost:5000/recipes/create
+Content-Type: application/json
+
+{
+    "nama_resep" : "Rasa Coklat"
+}
+###
+
+POST http://localhost:5000/recipes/create/1
+Content-Type: application/json
+
+{
+    "bahan_baku" : "Gula",
+    "jumlah" : 7
+}
+
