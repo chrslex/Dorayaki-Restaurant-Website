@@ -11,6 +11,6 @@ const router = express.Router();
 router.get('/', getAllRecipes);
 router.get('/:id', getRecipesById);
 router.post('/create', createRecipes);
-router.post('/create/:id', createIngredientForRecipes);
+router.post('/ingredients/:id', createIngredientForRecipes);
 
 export default router;

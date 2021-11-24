@@ -29,3 +29,25 @@ Content-Type: application/json
     "jumlah" : 7
 }
 
+###
+
+GET http://localhost:5000/ingredients
+
+###
+POST http://localhost:5000/stocks/add
+Content-Type: application/json
+
+{
+    "bahan_baku" : "Strawberry",
+    "stok" : 120
+}
+
+###
+
+POST http://localhost:5000/stok/updateStok
+Content-Type: application/json
+
+{
+    "bahan_baku" : "Coklat",
+    "stok" : 140
+}
