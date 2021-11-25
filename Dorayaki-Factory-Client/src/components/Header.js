@@ -11,10 +11,10 @@ const Header = () => {
             </a>
       
             <a class="navbar-item">
-              Stok
+              Request
             </a>
       
-            <a class="navbar-item">
+            <a class="navbar-item" href="/stok">
               Bahan Baku
             </a>
           </div>
@@ -22,7 +22,10 @@ const Header = () => {
           <div class="navbar-end">
             <div class="navbar-item">
               <div class="buttons">
-                <a class="button is-light">
+                <a class="button is-primary">
+                  Register
+                </a>
+                <a class="button is-primary is-light">
                   Log in
                 </a>
               </div>
