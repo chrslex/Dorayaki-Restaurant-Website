@@ -1,0 +1,9 @@
+version : '3.9'
+
+services:
+  web:
+    image: php:7.4-apache
+    ports:
+      - 80:80
+    volumes:
+      - ./:/var/www/html/
