@@ -51,3 +51,17 @@ export const createIngredientForRecipes = async (req,res) =>{
         });
     });
 }
+
+export const deleteIngredientForRecipes = async (req,res) =>{
+    pool.getConnection((err, conn)=>{
+        if(err) res.json({'message' : err.message});
+        const id = req.params.id;
+        const bahan_baku = req.params.bahan_baku;
+        let sql = "DELETE FROM bahan_resep WHERE id_resep = ? and bahan_baku = ? "
+        conn.query(sql, [id,bahan_baku], (err,rows)=>{
+            conn.release(); 
+            if(err) throw err;
+            res.json(rows);
+        });
+    });
+}

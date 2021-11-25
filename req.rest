@@ -10,7 +10,7 @@ PATCH http://localhost:5000/request/dec/1
 GET http://localhost:5000/recipes
 
 ###
-GET http://localhost:5000/recipes/5
+GET http://localhost:5000/recipes/18
 
 ###
 POST http://localhost:5000/recipes/create
@@ -51,3 +51,6 @@ Content-Type: application/json
     "bahan_baku" : "Maizena",
     "stok" : 199
 }
+
+###
+DELETE http://localhost:5000/recipes/ingredients/1/Gula
