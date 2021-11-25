@@ -8,10 +8,10 @@ const ListBahanBaku = () => {
         getBahanBaku();
     }, [])
 
-    const getBahanBaku = async() =>{
-        const res = await axios.get('http://localhost:5000/stok');
-        setBahanBaku(res.data);
-    };
+        const getBahanBaku = async() =>{
+            const res = await axios.get('http://localhost:5000/stok');
+            setBahanBaku(res.data);
+        };
 
     return (
         <div>

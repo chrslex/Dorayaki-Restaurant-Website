@@ -13,7 +13,7 @@ const Header = () => {
               Resep
             </a>
       
-            <a className="navbar-item">
+            <a className="navbar-item" href="/req">
               Request
             </a>
       
