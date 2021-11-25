@@ -6,6 +6,9 @@ const Header = () => {
 
         <div className="navbar-menu">
           <div className="navbar-start">
+            <a className="navbar-item ml-5" href="/">
+              Home
+            </a>
             <a className="navbar-item" href="/recipes">
               Resep
             </a>

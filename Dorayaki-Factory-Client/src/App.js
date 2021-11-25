@@ -5,6 +5,7 @@ import TambahBahanBaku from "./components/TambahBahanBaku";
 import EditBahanBaku from './components/EditBahanBaku';
 import ListResep from './components/ListResep'
 import LihatResep from './components/LihatResep';
+import AddResep from './components/AddResep';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
         <Route path="/stok/updateStok/:nama_bahan_baku" element={<EditBahanBaku/>}/>
         <Route path="/recipes/" element={<ListResep/>}/>
         <Route path="/recipes/:id" element={<LihatResep/>}/>
+        <Route path="/recipes/create" element={<AddResep/>}></Route>
       </Routes>
     </div>
     </Router>

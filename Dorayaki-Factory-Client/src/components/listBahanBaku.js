@@ -15,7 +15,7 @@ const ListBahanBaku = () => {
 
     return (
         <div>
-            <a href="/stok/add" className="button is-primary mt-5 ml-1">Add New</a>
+            <a href="/stok/add" className="button is-primary mt-5 ml-1">Tambah Bahan Baku</a>
             <table className="table is-striped is-fullwidth ">
                 <thead>
                     <tr>

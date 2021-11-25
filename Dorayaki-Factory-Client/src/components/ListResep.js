@@ -14,7 +14,7 @@ const ListResep = () => {
     }
     return (
         <div>
-            <a href="/stok/add" className="button is-primary mt-5 ml-1">Add New</a>
+            <a href="/recipes/create" className="button is-primary mt-5 ml-1">Tambah Resep</a>
             <table className="table is-striped is-fullwidth ">
                 <thead>
                     <tr>
