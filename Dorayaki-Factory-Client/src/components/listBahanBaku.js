@@ -27,12 +27,12 @@ const ListBahanBaku = () => {
                 </thead>
                 <tbody>
                     { bahanBaku.map((b, index) => (
-                        <tr key={b.id}>
+                        <tr key={b.nama_bahan_baku}>
                             <td>{index + 1}</td>
                             <td>{b.nama_bahan_baku}</td>
                             <td>{b.stok}</td>
                             <td>
-                                {/* <Link to={`/edit/${b.id}`} className="button is-small is-info">Edit</Link> */}
+                                <a href={`/stok/updateStok/${b.nama_bahan_baku}`} className="button is-small is-info">Edit</a>
                             </td>
                         </tr>
                     )) }

@@ -31,7 +31,7 @@ Content-Type: application/json
 
 ###
 
-GET http://localhost:5000/stok
+GET http://localhost:5000/stok/Coklat
 
 ###
 POST http://localhost:5000/stok/add
@@ -39,7 +39,7 @@ Content-Type: application/json
 
 {
     "bahan_baku" : "Apel",
-    "stok" : 120
+    "stok" : 130
 }
 
 ###
@@ -48,6 +48,6 @@ POST http://localhost:5000/stok/updateStok
 Content-Type: application/json
 
 {
-    "bahan_baku" : "Coklat",
-    "stok" : 180
+    "bahan_baku" : "Maizena",
+    "stok" : 199
 }
