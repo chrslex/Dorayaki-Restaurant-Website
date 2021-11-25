@@ -6,7 +6,7 @@ const Header = () => {
 
         <div className="navbar-menu">
           <div className="navbar-start">
-            <a className="navbar-item">
+            <a className="navbar-item" href="/recipes">
               Resep
             </a>
       
