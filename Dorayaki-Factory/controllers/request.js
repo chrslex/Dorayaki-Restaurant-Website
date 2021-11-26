@@ -4,7 +4,7 @@ import pool from "../config/database.js";
 export const getAllRequest = async(req,res)=>{
     pool.getConnection((err, conn)=>{
         if(err) res.json({'message' : err.message});
-        conn.query('SELECT * FROM request_toko', (err,rows)=>{
+        conn.query('SELECT * FROM request_toko WHERE status = ?', [-1],(err,rows)=>{
             conn.release(); 
             if(err) throw err;
             res.json(rows);

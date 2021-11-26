@@ -20,7 +20,7 @@ function App() {
         <Route path="/recipes/" element={<ListResep/>}/>
         <Route path="/recipes/:id" element={<LihatResep/>}/>
         <Route path="/recipes/create" element={<AddResep/>}></Route>
-        <Route path="/req" element={<ListRequest/>}></Route>
+        <Route path="/request" element={<ListRequest/>}></Route>
       </Routes>
     </div>
     </Router>
