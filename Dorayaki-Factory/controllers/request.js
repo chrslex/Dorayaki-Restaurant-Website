@@ -76,3 +76,19 @@ export const getRequestByIP = (req,res) => {
         });
     });
 }
+
+export const addRequest = (req,res) => {
+    const ip = req.body.ip;
+    const varian = req.body.varian;
+    const jumlah_penambahan = req.body.jumlah_penambahan
+
+    pool.getConnection((err, conn)=>{
+        if(err) throw err;
+        let sql = 'INSERT INTO request_toko (varian,jumlah_penambahan,status,ip) VALUES (? ,?,?,?)'
+        conn.query(sql, [varian, jumlah_penambahan, -1, ip], (err,rows)=>{
+            conn.release(); 
+            if(err) throw err;
+            res.json(rows);
+        });
+    });
+}
