@@ -7,6 +7,7 @@ import ListResep from './components/ListResep'
 import LihatResep from './components/LihatResep';
 import AddResep from './components/AddResep';
 import ListRequest from './components/ListRequest';
+import Login from './components/Login';
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
         <Route path="/recipes/:id" element={<LihatResep/>}/>
         <Route path="/recipes/create" element={<AddResep/>}></Route>
         <Route path="/request" element={<ListRequest/>}></Route>
+        <Route path="/login" element={<Login/>}></Route>
       </Routes>
     </div>
     </Router>
