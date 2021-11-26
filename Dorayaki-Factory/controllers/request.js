@@ -63,3 +63,16 @@ export const declineRequest = (req,res) => {
         });
     });
 }
+
+export const getRequestByIP = (req,res) => {
+    const ip = req.params.ip
+    pool.getConnection((err, conn)=>{
+        if(err) throw err;
+        let sql = "SELECT * FROM request_toko WHERE ip = ?"
+        conn.query(sql, [ip], (err,rows)=>{
+            conn.release(); 
+            if(err) throw err;
+            res.json(rows);
+        });
+    });
+}
