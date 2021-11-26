@@ -4,7 +4,7 @@ import pool from "../config/database.js";
 export const getAllRequest = async(req,res)=>{
     pool.getConnection((err, conn)=>{
         if(err) res.json({'message' : err.message});
-        conn.query('SELECT * FROM request_toko', (err,rows)=>{
+        conn.query('SELECT * FROM request_toko WHERE status = ?', [-1],(err,rows)=>{
             conn.release(); 
             if(err) throw err;
             res.json(rows);
@@ -57,6 +57,19 @@ export const declineRequest = (req,res) => {
         if(err) throw err;
         let sql = "UPDATE request_toko SET status =? WHERE id_request =?"
         conn.query(sql, [0, id], (err,rows)=>{
+            conn.release(); 
+            if(err) throw err;
+            res.json(rows);
+        });
+    });
+}
+
+export const getRequestByIP = (req,res) => {
+    const ip = req.params.ip
+    pool.getConnection((err, conn)=>{
+        if(err) throw err;
+        let sql = "SELECT * FROM request_toko WHERE ip = ?"
+        conn.query(sql, [ip], (err,rows)=>{
             conn.release(); 
             if(err) throw err;
             res.json(rows);

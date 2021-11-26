@@ -12,7 +12,7 @@ const ListBahanBaku = () => {
         const res = await axios.get('http://localhost:5000/stok');
         setBahanBaku(res.data);
     };
-
+    
     return (
         <div>
             <a href="/stok/add" className="button is-primary mt-5 ml-1">Tambah Bahan Baku</a>

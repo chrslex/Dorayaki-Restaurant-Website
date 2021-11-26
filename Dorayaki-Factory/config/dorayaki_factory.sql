@@ -27,7 +27,7 @@ CREATE TABLE `admin` (
   `password` text NOT NULL,
   `email` varchar(255) NOT NULL,
   `refresh_token` text
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -48,10 +48,10 @@ DROP TABLE IF EXISTS `bahan_baku`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `bahan_baku` (
-  `nama_bahan_baku` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `nama_bahan_baku` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
   `stok` int NOT NULL,
   PRIMARY KEY (`nama_bahan_baku`) USING BTREE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -60,7 +60,7 @@ CREATE TABLE `bahan_baku` (
 
 LOCK TABLES `bahan_baku` WRITE;
 /*!40000 ALTER TABLE `bahan_baku` DISABLE KEYS */;
-INSERT INTO `bahan_baku` VALUES ('Apel',120),('Coklat',180),('Gula',82),('Pasir',70),('Strawberry',120),('Terigu',88);
+INSERT INTO `bahan_baku` VALUES ('Apel',178),('Coklat',179),('Gula',20),('Maizena',184),('Nanas',180),('Pasir',70),('Strawberry',120),('Terigu',70);
 /*!40000 ALTER TABLE `bahan_baku` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -80,7 +80,7 @@ CREATE TABLE `bahan_resep` (
   KEY `id_resep` (`id_resep`),
   CONSTRAINT `fk_bahan_baku` FOREIGN KEY (`bahan_baku`) REFERENCES `bahan_baku` (`nama_bahan_baku`),
   CONSTRAINT `fk_id_resep` FOREIGN KEY (`id_resep`) REFERENCES `resep` (`id_resep`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -89,7 +89,7 @@ CREATE TABLE `bahan_resep` (
 
 LOCK TABLES `bahan_resep` WRITE;
 /*!40000 ALTER TABLE `bahan_resep` DISABLE KEYS */;
-INSERT INTO `bahan_resep` VALUES (1,'Gula',7),(1,'Pasir',7),(5,'Gula',3),(5,'Pasir',5),(5,'Terigu',2);
+INSERT INTO `bahan_resep` VALUES (5,'Gula',10),(5,'Pasir',10),(6,'Maizena',5),(9,'Coklat',10),(12,'Gula',10),(12,'Strawberry',5);
 /*!40000 ALTER TABLE `bahan_resep` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -102,12 +102,13 @@ DROP TABLE IF EXISTS `log_request`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `log_request` (
   `id_log` int NOT NULL AUTO_INCREMENT,
-  `ip` text NOT NULL,
+  `ip` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL DEFAULT '0',
   `endpoint` text NOT NULL,
   `timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `status` tinyint(1) DEFAULT NULL,
-  PRIMARY KEY (`id_log`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+  PRIMARY KEY (`id_log`),
+  KEY `ip` (`ip`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -116,6 +117,7 @@ CREATE TABLE `log_request` (
 
 LOCK TABLES `log_request` WRITE;
 /*!40000 ALTER TABLE `log_request` DISABLE KEYS */;
+INSERT INTO `log_request` VALUES (1,'192.168.112.12','192.168.112.12','2021-11-26 00:47:30',-1);
 /*!40000 ALTER TABLE `log_request` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -131,10 +133,13 @@ CREATE TABLE `request_toko` (
   `varian` varchar(255) NOT NULL,
   `jumlah_penambahan` int NOT NULL,
   `status` tinyint(1) DEFAULT NULL,
+  `ip` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
   PRIMARY KEY (`id_request`),
   KEY `FK_request_toko_resep` (`varian`),
+  KEY `FK_request_toko_log_request` (`ip`),
+  CONSTRAINT `FK_request_toko_log_request` FOREIGN KEY (`ip`) REFERENCES `log_request` (`ip`),
   CONSTRAINT `FK_request_toko_resep` FOREIGN KEY (`varian`) REFERENCES `resep` (`nama_resep`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -143,7 +148,7 @@ CREATE TABLE `request_toko` (
 
 LOCK TABLES `request_toko` WRITE;
 /*!40000 ALTER TABLE `request_toko` DISABLE KEYS */;
-INSERT INTO `request_toko` VALUES (1,'Rasa Pasir',1,0);
+INSERT INTO `request_toko` VALUES (1,'Rasa Pasir',1,-1,'192.168.112.12'),(2,'Rasa Melon',1,-1,'192.168.112.12'),(4,'Rasa 1',1,-1,'192.168.112.12');
 /*!40000 ALTER TABLE `request_toko` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -159,7 +164,7 @@ CREATE TABLE `resep` (
   `nama_resep` varchar(255) NOT NULL,
   PRIMARY KEY (`id_resep`),
   UNIQUE KEY `nama_resep` (`nama_resep`)
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -168,7 +173,7 @@ CREATE TABLE `resep` (
 
 LOCK TABLES `resep` WRITE;
 /*!40000 ALTER TABLE `resep` DISABLE KEYS */;
-INSERT INTO `resep` VALUES (9,'Rasa Coklat'),(6,'Rasa Melon'),(5,'Rasa Pasir'),(1,'Terigu');
+INSERT INTO `resep` VALUES (18,'Dorayaki kah MANIEZZ'),(12,'Rasa 1'),(9,'Rasa Coklat'),(6,'Rasa Melon'),(5,'Rasa Pasir'),(1,'Terigu');
 /*!40000 ALTER TABLE `resep` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -181,4 +186,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-11-24 18:22:46
+-- Dump completed on 2021-11-26  8:14:08
