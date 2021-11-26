@@ -1,29 +1,34 @@
 GET http://localhost:5000/request
 
 ###
-<<<<<<< HEAD
 GET http://localhost:5000/posts
-Authorization: Bearer
-eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiSmFjayIsImlhdCI6MTYzNzg5MDgxMiwiZXhwIjoxNjM3ODkwODcyfQ.aWXgIP307Kvo7jhS_v16wknFUFXhPQikXgFnQahfUg4
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiVGltIiwiaWF0IjoxNjM3ODk4MDYyLCJleHAiOjE2Mzc4OTgwOTJ9.e_F-ezquf7KWf62tjpoXsvlLm0twbvqGoSNlVLob0q4
+
+###
+DELETE http://localhost:5000/logout
+
+{
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiSmFjayIsImlhdCI6MTYzNzg5NjI1N30.um41N8OBxhgJWzWhgbBVrPJcITOb0CX0XnZgZah4ixo"
+}
 
 ###
 POST http://localhost:5000/login
 Content-Type: application/json
 
 {
-    "username": "Jack"
+    "username": "Tim"
 }
 
 ###
 POST http://localhost:5000/token
 Content-Type: application/json
-{
-    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiSmFjayIsImlhdCI6MTYzNzg5MDk2Nn0.w42mzaSbcrZ2_W6TfdGs6nVi3BKNrgNSz7JE--uXBxQ"
-}
-=======
 
+{
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiVGltIiwiaWF0IjoxNjM3ODk4MDYyfQ.mI4vzo1nteFhnmZdrP_5WkiwGpJv54F-sgsw9C7my9c"
+}
+
+###
 GET http://localhost:5000/request/192.168.112.12
->>>>>>> cc6f6b77c51e71c183fb7b557d07ae679faee62f
 
 ###
 PATCH http://localhost:5000/request/acc/1/Rasa%20Pasir
