@@ -1,6 +1,26 @@
 GET http://localhost:5000/request
 
 ###
+GET http://localhost:5000/posts
+Authorization: Bearer
+eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiSmFjayIsImlhdCI6MTYzNzg5MDgxMiwiZXhwIjoxNjM3ODkwODcyfQ.aWXgIP307Kvo7jhS_v16wknFUFXhPQikXgFnQahfUg4
+
+###
+POST http://localhost:5000/login
+Content-Type: application/json
+
+{
+    "username": "Jack"
+}
+
+###
+POST http://localhost:5000/token
+Content-Type: application/json
+{
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiSmFjayIsImlhdCI6MTYzNzg5MDk2Nn0.w42mzaSbcrZ2_W6TfdGs6nVi3BKNrgNSz7JE--uXBxQ"
+}
+
+###
 PATCH http://localhost:5000/request/acc/1/Rasa%20Pasir
 
 ###
